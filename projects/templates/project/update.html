@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load i18n %}
+
+{% block content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">
+            <h5>{{ object.title }}</h5>
+        </li>
+    </ol>
+</nav>
+
+<div class="row">
+    <!-- Left Side - Task Form -->
+    <div class="col-md-3">
+        <form method="post">
+            <div class="card">
+                <div class="card-body">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="mb-3">
+                        {{ field }}
+                    </div>
+                    {% endfor %}
+                    <!-- Clock Icon and Time -->
+                    <span class="me-auto text-muted small">
+                        <i class="bi bi-clock"></i>
+                        <time datetime="{{ project.created_at }}">{{ project.created_at|naturaltime }}</time>
+                    </span>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-outline-danger" type="submit"><i class="bi bi-save2"></i>
+                        Save
+                    </button>
+                    <a href="{% url 'Project_delete' project.id %}" class="btn btn-outline-danger" type="submit"><i class="bi bi-trash2"></i>
+                        Delete
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Right Side - Task List  -->
+    <div class="col-md-9">
+            <!-- Task List -->
+            {% include 'project/task.html' with project=object %}
+    </div>
+</div>
+{% endblock %}

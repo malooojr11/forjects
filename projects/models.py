@@ -1,5 +1,8 @@
+
 from django.db import models
 from django.conf.global_settings import AUTH_USER_MODEL
+from django.utils import timezone
+
 
 # Create your models here.
 class Category(models.Model):
@@ -29,10 +32,9 @@ class Project(models.Model):
 
 class Task(models.Model):
     description = models.CharField(max_length=255)
+    title = models.CharField(null=True, max_length=255)
     is_completed = models.BooleanField(default=False)
-    project = models.ForeignKey(Project,on_delete=models.CASCADE)
+    project = models.ForeignKey(Project,on_delete=models.CASCADE,default=1)
 
     def __str__(self):
-        return self.description
-
-
+        return str((self.description, self.title))

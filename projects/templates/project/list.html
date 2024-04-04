@@ -1,13 +1,84 @@
+{% extends 'base.html' %}
+{% load humanize %}
 {% load i18n %}
 {% block content %}
+<div class="row">
+    {% for project in model %}
+  <div class="col-sm-6 mb-3 mb-sm">
+    <div class="card">
+      <div class="card-body">
+          <i class="bi bi-balloon-fill">
+              <span class="badge rounded-pill bg-dark">{{ project.get_status_display }}</span>
+          </i>
+          <h5 class="card-title">{{ project.title }}</h5>
+          <p class="card-text">{{ project.description }}</p>
+          <span class="me-auto text-muted small">
+              <i class="bi bi-clock"></i>
+              <time datetime="{{ project.created_at }}">{{ project.created_at|naturaltime }}</time>
+          </span>
+          <a href="{% url 'Project_update' project.id %}" class="btn btn-outline-dark">Edite</a>
+          <a href="{% url 'Project_delete' project.id %}" class="btn btn-outline-danger">
+              <i class="bi bi-trash"></i>
+          </a>
+      </div>
+    </div>
+  </div>
+    {% empty %}
+    <div class="col-md-12">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">No Project To Show</h5>
+                <i class="bi bi-emoji-frown fs-1"></i>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
-    <h3>My Project</h3>
-    <ul>
-        {% for project in model %}
-        <li>{{ project.title }}</li>
-        {% empty %}
-        <li>{% trans 'There are no projects to show'%}</li>
-        {% endfor %}
-    </ul>
+<div class="mx-auto p-2" style="width: 200px;">
+    <div class="container mt-5">
+        <a class="btn btn-outline-danger" href="{% url 'Project_create' %}" role="button">Create New Project</a>
+    </div>
+</div>
+
+<div class="row my-5">
+    {% if page_obj.paginator.count > 0 %}
+    <div class="d-flex pagination justify-content-center">
+        <nav>
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">&laquo;</span>
+                </li>
+                {% endif %}
+
+                <!-- Add more pagination controls as needed -->
+                <!-- Example: Numbered pages -->
+                {% for num in page_obj.paginator.page_range %}
+                <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">&raquo;</span>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    {% endif %}
+</div>
+
+
 
 {% endblock %}

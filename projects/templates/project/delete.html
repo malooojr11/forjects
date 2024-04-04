@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div class="card text-center">
+        <div class="card-header">
+            Delete Project: {{ project.title }}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Are You Sure You Want To Delete This Project? {{ project.title }} </h5>
+            {{ form }}
+            <input class="btn btn-danger" type="submit" value="Delete">
+        </div>
+    </div>
+</form>
+
+{% endblock %}
