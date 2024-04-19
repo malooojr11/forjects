@@ -17,6 +17,8 @@ Including another URLconf
 import debug_toolbar
 from django.contrib import admin
 from django.urls import path, include
+admin.site.site_header = ('Forjects')
+admin.site.site_title = ('Forjects Manager')
 
 urlpatterns = [
     path('__debug__/',include(debug_toolbar.urls)),

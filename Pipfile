@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 psycopg2 = "*"
 django-debug-toolbar = "*"
+whitenoise = "*"
+gunicorn = "*"
 
 [dev-packages]
 
