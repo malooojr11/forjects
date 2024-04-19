@@ -8,6 +8,7 @@ psycopg2 = "*"
 django-debug-toolbar = "*"
 whitenoise = "*"
 gunicorn = "*"
+django = "==3.2.1"
 
 [dev-packages]
 
