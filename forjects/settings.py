@@ -85,13 +85,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'forjects',
-        'USER': 'postgres',
-        'PASSWORD': '100200300',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'USER': 'admin',
+        'PASSWORD': 'Pt4DNOBgipitKGUzbXpJEjRlXDbCbO6K',
+        'HOST': 'dpg-cohi7mljm4es7399iig0-a.oregon-postgres.render.com',
+        'PORT': '',  # Default PostgreSQL port (5432)
     }
 }
-
 
 
 # Password validation
