@@ -82,16 +82,15 @@ WSGI_APPLICATION = 'forjects.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        #Replace this value with your local database's connection string.
-         default='postgresql://postgres:postgres@localhost:5432/mysite',
-         conn_max_age=600),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'forjects',
         'USER': 'postgres',
         'PASSWORD': '100200300',
         'HOST': 'localhost',
-        'PORT': ''
+        'PORT': '5432',
     }
+}
 
 
 
@@ -153,3 +152,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 
+DEBUG = True
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
