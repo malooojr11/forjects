@@ -1,0 +1,22 @@
+databases:
+  - name: forjects
+    plan: free
+    databaseName: forjects
+    user: admin
+
+services:
+  - type: web
+    plan: free
+    name: forjects
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn mysite.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: forjects
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
