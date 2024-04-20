@@ -82,16 +82,12 @@ WSGI_APPLICATION = 'forjects.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'forjects',
-        'USER': 'admin',
-        'PASSWORD': 'Pt4DNOBgipitKGUzbXpJEjRlXDbCbO6K',
-        'HOST': 'dpg-cohi7mljm4es7399iig0-a.oregon-postgres.render.com',
-        'PORT': '',  # Default PostgreSQL port (5432)
-    }
+'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        conn_max_age=600
+    )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
