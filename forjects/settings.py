@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-=so7@t$@=u(5zr$3yzc)@8(-_916l)wmfkv(mfqd*7h0tljde%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['forjects.onrender.com', '127.0.0.1', 'localhost', 'localhost:10000']
 
 
 # Application definition
@@ -149,6 +149,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 
-DEBUG = True
-ALLOWED_HOSTS = ['forjects.onrender.com','127.0.0.1']
+
 
