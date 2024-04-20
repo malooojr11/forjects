@@ -1,0 +1,59 @@
+
+/* styles.css */
+/* logo.css */
+
+/* Navbar container */
+.navbar {
+  background-color: #dc3545; /* Adjust as needed */
+}
+
+/* Navbar brand/logo */
+.navbar-brand {
+  color: #fff;
+  font-size: 24px;
+}
+
+/* Navbar navigation */
+.navbar-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+/* Navbar list items */
+.nav-item {
+  margin-left: 20px;
+}
+
+/* Navbar links */
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Navbar link hover effect */
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Navbar toggler icon color */
+.navbar-toggler-icon {
+  color: #fff;
+}
+
+
+.navbar-brand .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 5px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+.logo {
+  max-width: 80px; /* Adjust the max-width to make the logo smaller */
+  height: auto;
+}

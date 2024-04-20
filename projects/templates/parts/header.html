@@ -1,10 +1,13 @@
-{% load i18n %}
 {% load static %}
+{% load i18n %}
+{% block extra_css %} <link rel="stylesheet" href="{% static 'css/logo.css' %}"> {% endblock %}
 <nav class="navbar navbar-expand-sm navbar-light bg-danger bg-gradient p-3">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'Project_list' %}">
-      <img src="{% static 'media/logo.svg' %}" alt="Forjects Logo"
-           width="50" height="50"></a>
+    <a href="{% url 'Project_list' %}" class="navbar-brand">
+      <img src="{% static 'images/logo.svg' %}" alt="Logo" class="logo">
+      <span class="sr-only">Home</span> <!-- This span is for screen readers -->
+    </a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
