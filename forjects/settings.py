@@ -26,7 +26,7 @@ SECRET_KEY =  os.environ.get('SECRET_KEY',default='django-insecure-=so7@t$@=u(5z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['forjects.onrender.com', '127.0.0.1', 'localhost', 'localhost:10000']
+ALLOWED_HOSTS = ['forjects.onrender.com']
 
 
 # Application definition
@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'forjects.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default='postgresql://postgres:postgres@localhost:5432/forjects',
         conn_max_age=600
     )
 }
