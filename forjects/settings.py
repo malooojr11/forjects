@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=so7@t$@=u(5zr$3yzc)@8(-_916l)wmfkv(mfqd*7h0tljde%'
+SECRET_KEY =  os.environ.get('SECRET_KEY',default='django-insecure-=so7@t$@=u(5zr$3yzc)@8(-_916l)wmfkv(mfqd*7h0tljde%')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -81,14 +81,14 @@ WSGI_APPLICATION = 'forjects.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# Replace the SQLite DATABASES configuration with PostgreSQL:
 DATABASES = {
-'default': dj_database_url.config(
+    'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
         default='postgresql://postgres:postgres@localhost:5432/mysite',
         conn_max_age=600
     )
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
