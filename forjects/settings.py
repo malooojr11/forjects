@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'forjects.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/forjects',
+        default='postgres://admin:rB1Mt3YPVDpeX4zi5JzwjwPtAtw1G4vj@dpg-coi5c1gl5elc73d1uvh0-a.oregon-postgres.render.com/forjects_ifzc',
         conn_max_age=600
     )
 }
