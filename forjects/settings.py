@@ -78,7 +78,14 @@ WSGI_APPLICATION = 'forjects.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASE = {
-    'default': dj_database_url.parse(env('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'forjects_s8mh',
+        'USER': 'forjects_s8mh_user',
+        'PASSWORD': '0cxVrult5iMJigf2hWNB56g1LyMkYDln',
+        'HOST': 'dpg-con50cq1hbls73fcmebg-a',
+        'PORT': '5432',
+    }
 }
 
 # Password validation
