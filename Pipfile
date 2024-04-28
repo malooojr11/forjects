@@ -11,7 +11,7 @@ django = "*"
 dj-database-url = "*"
 uvicorn = "*"
 psycopg2-binary = "*"
-whitenoise = {extras = ["brotli"], version = "*"}
+whitenoise = "*"
 
 [dev-packages]
 
