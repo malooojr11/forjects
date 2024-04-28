@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'forjects.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASE = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'forjects_s8mh',
