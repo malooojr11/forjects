@@ -24,7 +24,7 @@ environ.Env.read_env()
 SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-=so7@t$@=u(5zr$3yzc)@8(-_916l)wmfkv(mfqd*7h0tljde%')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -78,14 +78,7 @@ WSGI_APPLICATION = 'forjects.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'forjects_s8mh',
-        'USER': 'forjects_s8mh_user',
-        'PASSWORD': '0cxVrult5iMJigf2hWNB56g1LyMkYDln',
-        'HOST': 'dpg-con50cq1hbls73fcmebg-a',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.parse(env('DATABASE_URL'))
 }
 
 # Password validation
