@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-=so7@t$@=u(5z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://forjects.onrender.com','127.0.0.1']
+ALLOWED_HOSTS = ['forjects.onrender.com','127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
