@@ -1,4 +1,4 @@
-from django.http import Http404  # Import Http404 exception
+from django.http import Http404, HttpResponseRedirect  # Import Http404 exception
 from django.shortcuts import render  # Import render function
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView  # Import generic views
 from django.urls import reverse_lazy, reverse  # Import reverse functions
@@ -86,14 +86,13 @@ class TaskUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 
 class TaskDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    model = models.Task  # Set the model to Task
-
+    model = models.Task
     def test_func(self):
-        project = self.get_object()
-        return project.user == self.request.user  # Check if user is the project owner
+            task = self.get_object()
+            return task.project.user == self.request.user
 
     def get_success_url(self):
-        return reverse('Project_update', args=[self.object.project.id])  # Get success URL
+        return reverse('Project_update', args=[self.object.project.id])
 
 
 class ProjectDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
