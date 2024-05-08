@@ -11,6 +11,6 @@ PostgreSQL is used as the backend database to organize tasks efficiently.
 - **Search Functionality:** Quick search feature enables users to find relevant information effortlessly.
 - **Responsive Design:** The design is responsive, providing an optimal viewing and interaction experience across a wide range of devices.
 ## Technologies Used:
-- **Frontend:HTML, Bootstrap
-- **Backend: Python, Django
-- **Database: SQLite
+- Frontend:HTML, Bootstrap
+- Backend: Python, Django
+- Database: SQLite
